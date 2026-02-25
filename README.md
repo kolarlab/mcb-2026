@@ -1,2 +1,2 @@
-# mcb-2026
+# Malopolska Center of Biotechnology
 presentation slides
