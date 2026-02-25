@@ -1,0 +1,495 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta author="Michal Kolář">
+
+	<title>
+        Atomistic computer simulations of the ribosome and its primordial predecessor
+    </title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/white.mhk.css" id="theme">
+
+</head>
+	<body>
+        <div class="reveal">
+	        <div class="slides">
+<!--
+============ SLIDES START HERE ============
+-->
+
+
+<section>
+    <p>
+        talk given at <a href="https://mcb.uj.edu.pl/en_GB/start" target="_blank">Malopolska Center of Biotechnology</a>, Krakow, Poland
+    </p>
+    <p>
+        Created using <a href="https://revealjs.com" target="_blank">Reveal.js</a>.
+    </p>
+    <p style="margin-top: 2em">
+        Use the right arrow to start browsing the slides.
+    </p>
+</section>
+
+
+<section data-background-image="./media/protein-rna-interface.png"
+         data-background-position="left"
+         data-background-size="contain"
+         data-background-color="black">
+
+    <div style="width:30%; float:right; text-align: left;">
+        <img src="./media/logos/ufch-w.png" style="width:90%">
+        <h4 style="color:white; margin-top:2em">
+            Atomistic computer simulations of the ribosome and its primordial predecessor
+        </h4>
+        <h4 style="color:white; margin-top:5em; margin-bottom:1em">
+           Michal Kolář
+        </h4>
+        <p style="color: gray; font-size:small;margin-top:4em;">
+            Left: interface between protoribosomal RNA and short fragments of r-protein uL22
+        </p>
+    </div>
+</section>
+
+
+<section data-background-image="./media/maps/juelich.png">
+</section>
+
+
+<section data-background-image="./media/maps/goettingen.png">
+</section>
+
+
+<section data-background-color="#B0EEB0">
+    <div style="width:60%; margin: 0 auto; text-align:left;">
+    <p>take this home:</p>
+    <h3 style="margin-top: 3em">Computer simulations may provide atomistic details of ribosome structure, dynamics, and energetics.</h3>
+    </div>
+</section>
+
+
+<section>
+    <img src="./media/team-sitting.jpg">
+    <div style="display: flex; justify-content: space-between; margin-top: 1em; align-items: center">
+        <img src="./media/logos/gacr.png" style="height: 80px; margin-right: 2em">
+        <img src="./media/logos/avh.png" style="height: 80px; margin-right: 2em">
+        <img src="./media/logos/czexpats.png" style="height: 90px">
+    </div>
+    <div style="display: flex; justify-content: space-between; align-items: center">
+        <img src="./media/logos/it4i.png" style="height: 60px; margin-right: 2em">
+        <img src="./media/logos/mpcdf.png" style="height: 55px; margin-right: 2em">
+    </div>
+    <!--
+    -->
+</section>
+
+
+<section style="center">
+    <div style="width: 80%; text-align: left; display: block; margin: 3em auto">
+    <ol>
+        <h3>1. ribosome essentials</h3>
+        <h3>2. molecular dynamics simulations</h3>
+        <h3>3. long-range allostery</h3>
+        <h3>4. tunnel gating</h3>
+        <h3>5. protoribosome</h3>
+    </div>
+</section>
+
+
+
+<section style="center">
+    <div style="width: 80%; text-align: left; display: block; margin: 3em auto">
+    <ol>
+        <h3>1. ribosome essentials</h3>
+        <h3 style="color:silver">2. molecular dynamics simulations</h3>
+        <h3 style="color:silver">3. long-range allostery</h3>
+        <h3 style="color:silver">4. tunnel gating</h3>
+        <h3 style="color:silver">5. protoribosome</h3>
+    </div>
+</section>
+
+
+<section class="center">
+    <img src="./media/reaction/reaction.png">
+</section>
+
+
+<section>
+    <div class="r-stack">
+        <img src="./media/translation-scheme/scheme-1.png" style="width:70%">
+    </div>
+</section>
+
+
+<section data-background-video="./media/ribosome-intro.mp4"
+         data-background-video-loop="true"
+         data-background-color="white"
+         data-background-size="contain">
+    &nbsp;
+</section>
+
+
+<section style="center">
+    <div style="width: 80%; text-align: left; display: block; margin: 3em auto">
+    <ol>
+        <h3 style="color:silver">1. ribosome essentials</h3>
+        <h3>2. molecular dynamics simulations</h3>
+        <h3 style="color:silver">3. long-range allostery</h3>
+        <h3 style="color:silver">4. tunnel gating</h3>
+        <h3 style="color:silver">5. protoribosome</h3>
+    </div>
+</section>
+
+
+<section data-background-color="black"
+         data-background-image="./media/bohr.jpg"
+         data-background-size="contain"
+         data-background-position="left">
+    <div class="rightcol">
+        <h2 style="margin-top:3em; color: silver">&bdquo;Prediction is very difficult, especially if it’s about the future.&ldquo;</h2>
+        <p style="font-size:14pt; color:gray; margin-top: 200px">
+            <a href="https://www.nobelprize.org/prizes/physics/1922/bohr/biographical/" target="_blank" style="color:gray">foto AB Lagrelius & Westphal</a>
+        </p>
+    </div>
+</section>
+
+
+
+<section>
+    <div class="r-stack">
+        <img src="./media/gravity/gravity-1.png" style="width:80%">
+        <img src="./media/gravity/gravity-2.png" style="width:80%" class="fragment">
+        <img src="./media/gravity/gravity-3.png" style="width:80%" class="fragment">
+        <img src="./media/gravity/gravity-4.png" style="width:80%" class="fragment">
+    </div>
+</section>
+
+
+
+<section>
+    <div class="r-stack">
+        <img src="./media/simulation-box/box-0.png" style="width:70%">
+        <img src="./media/simulation-box/box-2.png" style="width:70%" class="fragment">
+        <img src="./media/simulation-box/box-3.png" style="width:70%" class="fragment">
+    </div>
+</section>
+
+
+<section data-background-image="./media/simulation-scheme.png"
+         data-background-size="80%"
+         data-background-position="center">
+</section>
+
+
+<section class="center">
+    <img src="./media/simulations/simulations.png">
+</section>
+
+
+<section>
+    <div class="leftcol" style="width:35%">
+        <img src="./media/simulations/simulations-output.png">
+    </div>
+    <div>
+        <ul>
+            <li>averages (structure)</li>
+            <li>fluctuations (dynamics) </li>
+            <li>thermodynamics (&Delta;G, &Delta;S, K<sub>D</sub>)</li>
+            <li>rates of processes (lifetimes, rate constants)</li>
+            <li>biophysical data (NMR, SAXS)</li>
+        </ul>
+    </div>
+</section>
+
+
+<section>
+    <h3>Three challenges related to the ribosome</h3>
+    <img src="./media/cross-section.png" style="width:90%">
+</section>
+
+
+<section data-background-image="./media/lumi-area.jpg">
+    <p style="margin-top: 19em; background-color: rgba(255,255,255,0.4)">
+        foto: Mikael Kanerva <a href="https://www.lumi-supercomputer.eu/media/#fancybox-custom-gallery-8" target="_blank">link</a>
+    </p>
+</section>
+
+
+<section data-background-image="./media/lumi.jpg">
+    <p style="text-align:right; margin-top:15em">
+        2500+1500 nodes<br>
+        0.55 exaFLOP<br>
+        € 144 million<br>
+    </p>
+    <p>
+        foto: Fade Creative <a href="https://www.lumi-supercomputer.eu/media/#fancybox-custom-gallery-1" target="_blank">link</a>
+    </p>
+    <!--
+    -->
+</section>
+
+
+<section style="center">
+    <div style="width: 80%; text-align: left; display: block; margin: 3em auto">
+    <ol>
+        <h3 style="color:silver">1. ribosome essentials</h3>
+        <h3 style="color:silver">2. molecular dynamics simulations</h3>
+        <h3>3. long-range allostery</h3>
+        <h3 style="color:silver">4. tunnel gating</h3>
+        <h3 style="color:silver">5. protoribosome</h3>
+    </div>
+    <p>
+        McGrath <i>et al.</i> <a href="https://pubmed.ncbi.nlm.nih.gov/36335428" target="_blank">PMID 36335428</a><br>
+    </p>
+</section>
+
+
+<section>
+    <div class="r-stack">
+        <img src="./media/tunnel/tunnel-1.png" style="width:70%">
+        <img src="./media/tunnel/tunnel-2.png" style="width:70%" class="fragment">
+        <img src="./media/tunnel/tunnel-3.png" style="width:70%" class="fragment">
+        <img src="./media/tunnel/tunnel-4.png" style="width:70%" class="fragment">
+        <img src="./media/tunnel/tunnel-5.png" style="width:70%" class="fragment">
+    </div>
+</section>
+
+
+<section data-background-video="./media/pdf.mp4"
+         data-background-video-loop="true"
+         data-background-color="black"
+         data-background-size="contain">
+    &nbsp;
+</section>
+
+
+
+<section data-background-color="#B0EEB0">
+    <div style="width:60%; margin: 0 auto; text-align:left;">
+    <p>take this home:</p>
+    <h3 style="margin-top: 3em">The presence or absence of PDF can be predicted from conformations of distant ribosome parts.</h3>
+    </div>
+</section>
+
+
+
+<section data-background-image="./media/pdf-strategy/strategy.png"
+         data-background-size="90%"
+         data-background-position="center">
+</section>
+
+
+
+<section>
+    <h3>Prediction accuracy</h3>
+    <img src="./media/accuracy/accuracy.png" style="width: 100%">
+</section>
+
+
+
+<section style="center">
+    <div style="width: 80%; text-align: left; display: block; margin: 3em auto">
+    <ol>
+        <h3 style="color:silver">1. ribosome essentials</h3>
+        <h3 style="color:silver">2. molecular dynamics simulations</h3>
+        <h3 style="color:silver">3. long-range allostery</h3>
+        <h3>4. tunnel gating</h3>
+        <h3 style="color:silver">5. protoribosome</h3>
+    </div>
+</section>
+
+
+<section data-background-image="./media/gating/ribosome.png"
+         data-background-size="80%"
+         data-background-position="center">
+</section>
+
+
+<section style="text-align: left" data-background-color="#B0EEB0">
+    <h1>1</h1>
+    <h4 style="margin-top: 3em">Is the constriction site flexible?</h4>
+    Yes. The flexibility is especially high for certain side chains of uL4 and uL22.
+</section>
+
+<section style="text-align: left" data-background-color="#B0EEB0">
+    <h1>2</h1>
+    <h4 style="margin-top: 3em">Can the constriction get closed?</h4>
+    Yes. It may get narrower than a single water molecule.
+</section>
+
+<section style="text-align: left" data-background-color="#B0EEB0">
+    <h1>3</h1>
+    <h4 style="margin-top: 3em">How is the constriction affected by the nascent peptide?</h4>
+    Constriction narrows upon contact with the peptide.
+</section>
+
+
+<section data-background-image="./media/gating/gly.png"
+         data-background-size="80%"
+         data-background-position="center">
+</section>
+
+
+
+<section class="center">
+    <div class="r-stack">
+        <img src="./media/gating/gibbs-1.png" style="width:100%">
+        <img src="./media/gating/gibbs-2.png" style="width:100%" class="fragment">
+        <img src="./media/gating/gibbs-3.png" style="width:100%" class="fragment">
+    </div>
+</section>
+
+
+
+<section style="center">
+    <div style="width: 80%; text-align: left; display: block; margin: 3em auto">
+    <ol>
+        <h3 style="color:silver">1. ribosome essentials</h3>
+        <h3 style="color:silver">2. molecular dynamics simulations</h3>
+        <h3 style="color:silver">3. long-range allostery</h3>
+        <h3 style="color:silver">4. tunnel gating</h3>
+        <h3>5. protoribosome</h3>
+    </div>
+    <p>
+        Codispoti <i>et al.</i> <a href="https://pubmed.ncbi.nlm.nih.gov/39340303" target="_blank">PMID 39340303</a><br>
+    </p>
+</section>
+
+
+<section data-background-image="./media/evolution/evolution.png"
+         data-background-size="contain">
+    <p style="font-size: 26px">
+        Petrov et al.: <i>History of the ribosome and the origin of translation</i> <a href="https://pubmed.ncbi.nlm.nih.gov/26621738/" target="_blank">PMID  26621738</a>
+    </p>
+
+</section>
+
+<section class="center">
+    <div class="r-stack">
+        <img src="./media/layers/layers.png" style="width: 100%">
+        <img src="./media/layers/proteins.png" style="width: 100%" class="fragment">
+    </div>
+    <p>
+        Kovacs et al.: <i>Frozen in time: the history of proteins</i> <a href="https://pubmed.ncbi.nlm.nih.gov/28201543/" target="_blank">PMID 28201543</a>
+    </p>
+    <p>
+        Kolář, Hlouchová: <i>Evolution of protein-RNA interactions</i> <a href="https://pubmed.ncbi.nlm.nih.gov/40628174/" target=_blank">PMID 40628174</a>
+    </p>
+</section>
+
+
+<section data-background-image="./media/papers/hsiao13-ribo.png"
+         data-background-position="center"
+         data-background-size="contain">
+</section>
+
+
+<section data-background-image="./media/papers/bose22-ribo.png"
+         data-background-position="center"
+         data-background-size="contain">
+</section>
+
+
+
+<section>
+   <img src="./media/llps/protoribosomes.png" style="width: 100%">
+</section>
+
+
+<section class="center">
+   <img src="./media/llps/llps.png" style="width: 60%">
+</section>
+
+
+<section data-background-color="#B0EEB0">
+    <div style="width:60%; margin: 0 auto; text-align:left;">
+    <p>take this home:</p>
+    <h3 style="margin-top: 3em">Peptides stabilize ancestral ribosomal RNA (and promote protoribosome aggregation).
+    </div>
+</section>
+
+
+<section class="center">
+    <div class="r-stack">
+        <img src="./media/rmsd-peptides/rmsd-1.png">
+        <img src="./media/rmsd-peptides/rmsd-2.png" class="fragment">
+        <img src="./media/rmsd-peptides/rmsd-3.png" class="fragment">
+    </div>
+</section>
+
+
+<section data-background-video="./media/protein-rna.mp4"
+         data-background-video-loop="true"
+         data-background-color="black"
+         data-background-size="contain">
+    &nbsp;
+</section>
+
+
+<section data-background-image="./media/protein-rna-interface.png"
+         data-background-position="left"
+         data-background-size="contain"
+         data-background-color="black">
+
+    <div style="width:35%; float:right; text-align: left;">
+        <img src="./media/logos/ufch-w.png" style="width:90%">
+        <h4 style="color:white; margin-top:2em">
+            Atomistic computer simulations of the ribosome and its primordial predecessors
+        </h4>
+        <h4 style="color:white; margin-top:5em; margin-bottom:1em">
+           https://kolar.vscht.cz
+        </h4>
+    </div>
+</section>
+
+
+<section>
+</section>
+
+
+
+<section>
+    <h3>Structural analysis</h3>
+    <img src="./media/rwRMSD/structures.png" style="width:70%">
+</section>
+
+
+<section>
+    <img src="./media/rwRMSD/ecoli.png" style="width:50%">
+</section>
+
+
+<section>
+    <img src="./media/mcm.png" style="width: 100%">
+</section>
+
+
+
+<!--
+============ SLIDES END HERE ============
+-->
+            </div>
+        </div>
+
+		<script src="dist/reveal.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+                autoPlayMedia: true,
+                controls: false,
+                progress: true, 
+                slideNumber: true,
+                transition: 'none', 
+                backgroundTransition: 'none',
+                center: false,
+			});
+		</script>
+	</body>
+</html>
+        
